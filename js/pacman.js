@@ -14,9 +14,12 @@ pacman = {
             this.columnGhost;
             this.rowGhost;
             this.help = '·';
+            this.btn = document.getElementById("restart");
             this.tableroJuego();
             this.pacman();
             this.ghost();
+            this.restart();
+
         }
 
 
@@ -161,6 +164,9 @@ pacman = {
             },false);
         }
 
+        restart() {
+            this.btn.addEventListener('click', () => window.location.reload());
+        }
         
     }
 }
