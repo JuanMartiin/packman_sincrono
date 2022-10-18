@@ -8,7 +8,7 @@ pacman = {
                            ['· ',1,'· ','· ',1,'· ','· ','· ','· ','· ','· ','· ','· ','· ','· ','· ',1,'· '],
                            ['· ','· ','· ','· ',1,'· ',1,1,'· ','· ',1,1,'· ',1,'· ',1,1,'· '],
                            ['. ',1,'· ' ,1,'· ','· ','· ','.','·','· ','· ','· ','· ' ,1,'· ','· ','· ','· '],
-                           ['X ','· ','· ' ,'· ','· ',1,'· ','.',1,1,1,'· ','· ' ,1,'· ','· ','· ','· ']];
+                           ['X','· ','· ' ,'· ','· ',1,'· ','.',1,1,1,'· ','· ' ,1,'· ','· ','· ','· ']];
             this.row
             this.column;
             this.columnGhost;
@@ -51,9 +51,10 @@ pacman = {
             
                 but.addEventListener("click", ()=>{
                 
-                let movimiento = document.getElementById("text").value;
+                let movimiento = document.getElementById("mov").value;
                 if(movimiento == 1){
                     if(!this.tablero[this.row-1] || this.tablero[this.row-1][this.column] === "undefined" || this.tablero[this.row-1][this.column] == 1){
+                        
                         document.getElementById("info").innerHTML = "Chocaste!";
                     }else{
                         if(this.tablero[this.row-1][this.column] == 0){
@@ -97,9 +98,7 @@ pacman = {
                         this.tableroJuego();
                     }
                 }
-                if(this.rowGhost == this.row && this.columnGhost == this.column){
-                    document.getElementById("play").disabled = true;
-                }
+                
             },false);
         }
 
@@ -114,7 +113,7 @@ pacman = {
                 if(movimiento == 1){
                     if(!this.tablero[this.rowGhost-1] || this.tablero[this.rowGhost-1][this.columnGhost] === "undefined" || this.tablero[this.rowGhost-1][this.columnGhost] == 1){
                         //this.ghost();
-                        document.getElementById("info").innerHTML = "El fantasma chocó";
+                        document.getElementById("info2").innerHTML = "El fantasma chocó";
                     }else{
                         this.tablero[this.rowGhost-1][this.columnGhost] = 0;
                         this.tablero[this.rowGhost][this.columnGhost] = this.help;
@@ -125,7 +124,7 @@ pacman = {
                 }else if(movimiento == 2){
                     if(!this.tablero[this.rowGhost+1] || this.tablero[this.rowGhost+1][this.columnGhost] === "undefined" || this.tablero[this.rowGhost+1][this.columnGhost] == 1){
                         //this.ghost();
-                        document.getElementById("info").innerHTML = "El fantasma chocó";
+                        document.getElementById("info2").innerHTML = "El fantasma chocó";
                     }else{
                         this.tablero[this.rowGhost+1][this.columnGhost] = 0;
                         this.tablero[this.rowGhost][this.columnGhost] = this.help;
@@ -136,7 +135,7 @@ pacman = {
                 }else if(movimiento == 3){
                     if(!this.tablero[this.rowGhost][this.columnGhost-1] || this.tablero[this.rowGhost][this.columnGhost-1] === "undefined" || this.tablero[this.rowGhost][this.columnGhost-1] == 1){
                         //this.ghost();
-                        document.getElementById("info").innerHTML = "El fantasma chocó";
+                        document.getElementById("info2").innerHTML = "El fantasma chocó";
                     }else{
                         this.tablero[this.rowGhost][this.columnGhost-1] = 0;
                         this.tablero[this.rowGhost][this.columnGhost] = this.help;
@@ -147,7 +146,7 @@ pacman = {
                 }else if(movimiento == 4){
                     if(!this.tablero[this.rowGhost][this.columnGhost+1] || this.tablero[this.rowGhost][this.columnGhost+1] === "undefined" || this.tablero[this.rowGhost][this.columnGhost+1] == 1){
                         //this.ghost();
-                        document.getElementById("info").innerHTML = "El fantasma chocó";
+                        document.getElementById("info2").innerHTML = "El fantasma chocó";
                     }else{
                         this.tablero[this.rowGhost][this.columnGhost+1] = 0;
                         this.tablero[this.rowGhost][this.columnGhost] = this.help;
